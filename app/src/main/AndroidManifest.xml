@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhongjh.cameraapp">
+
+    <!-- 访问网络连接权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 访问网络连接权限bugly所需 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 语音权限，录制声音通过手机或耳机的麦克  -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 修改声音设置信息 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- 某些手机启动SCO音频连接需要此权限 -->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <!-- 蓝牙录音检测耳机状态 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <!-- 视频权限 begin -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 视频权限 end -->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".phone.MainListActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".phone.MainSimpleActivity" />
+
+        <activity android:name=".phone.MainThemeActivity" />
+
+        <activity
+            android:name=".phone.MainActivity"
+            android:configChanges="orientation|keyboardHidden|navigation" />
+
+        <activity android:name=".phone.MainSeeActivity" />
+
+        <activity android:name=".phone.MainUpperLimitActivity" />
+
+        <activity android:name=".phone.RecyclerViewActivity" />
+
+        <activity android:name=".phone.MainCustomCameraViewActivity" />
+
+        <activity android:name=".phone.MainSuperSimpleActivity" />
+        <activity android:name=".phone.customlayout.MainCustomCameraLayoutActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public" />
+        </provider>
+
+    </application>
+
+</manifest>

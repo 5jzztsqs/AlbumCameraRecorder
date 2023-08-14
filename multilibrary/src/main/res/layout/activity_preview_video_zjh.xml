@@ -1,0 +1,63 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="horizontal">
+
+    <VideoView
+        android:id="@+id/vvPreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="显示当前摄像的"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnConfirm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnConfirm"
+            app:srcCompat="@drawable/ic_close_white_24dp"
+            tools:ignore="ContentDescription" />
+
+        <com.zhongjh.albumcamerarecorder.widget.progressbutton.CircularProgressButton
+            android:id="@+id/btnConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:textColor="@color/cpb_white"
+            app:cpb_colorIndicator="@color/operation_background_pressed"
+            app:cpb_cornerRadius="24dp"
+            app:cpb_iconComplete="@drawable/ic_baseline_done"
+            app:cpb_iconError="@drawable/ic_baseline_close_24"
+            app:cpb_selectorComplete="@color/operation_background"
+            app:cpb_selectorError="@color/operation_background"
+            app:cpb_selectorIdle="@color/operation_background"
+            app:cpb_textIdle="@string/z_multi_library_confirm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

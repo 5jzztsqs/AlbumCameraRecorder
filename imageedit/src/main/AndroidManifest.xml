@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zhongjh.imageedit">
+
+    <application>
+
+        <activity
+            android:name=".ImageEditActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="locked"
+            android:theme="@style/ZImageEditTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        debug {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompatSdkVersion"
+    implementation "com.google.android.material:material:$rootProject.ext.androidMaterialSdkVersion"
+
+    compileOnly project(':common')
+    // https://github.com/microshow/RxFFmpeg
+    implementation 'com.github.microshow:RxFFmpeg:4.9.0-lite'
+    implementation "androidx.core:core-ktx:$rootProject.ext.ktx_version"
+}

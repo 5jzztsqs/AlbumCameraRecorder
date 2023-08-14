@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    // 插件提供的其他特性,@Parcelize、View binding and caching
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName '1'
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true // 添加多密度矢量图形
+    }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        debug {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    // 这个配置是为了禁用除了parcelize外的其他功能
+    androidExtensions {
+        features = ["parcelize"]
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.core:core-ktx:$rootProject.ext.ktx_version"
+
+    implementation "androidx.recyclerview:recyclerview:$rootProject.ext.recyclerviewSdkVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompatSdkVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintlayoutSdkVersion"
+    implementation 'androidx.asynclayoutinflater:asynclayoutinflater:1.0.0'
+    implementation "com.google.android.material:material:$rootProject.ext.androidMaterialSdkVersion"
+    api 'com.github.chrisbanes:PhotoView:2.3.0'
+    // 图片
+    compileOnly 'com.github.bumptech.glide:glide:4.8.0'
+    compileOnly 'com.squareup.picasso:picasso:2.5.2'
+
+    // 拍摄、录像核心类 https://github.com/natario1/CameraView
+    api 'com.otaliastudios:cameraview:2.7.1'
+
+    // 自制按钮进度 https://github.com/zhongjhATC/CircularProgressView
+    api 'com.github.zhongjhATC:CircularProgressView:1.8'
+
+    compileOnly project(':common')
+    compileOnly project(':imageedit')
+}
