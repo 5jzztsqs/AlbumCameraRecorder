@@ -30,8 +30,9 @@ import com.zhongjh.progresslibrary.engine.ImageEngine
 class GlideEngine : ImageEngine {
     override fun loadThumbnail(context: Context, resize: Int, placeholder: Drawable, imageView: ImageView, uri: Uri) {
         Glide.with(context)
+                .asBitmap()
                 .load(uri)
-                .asBitmap() // some .jpeg files are actually gif
+               // some .jpeg files are actually gif
                 .placeholder(placeholder)
                 .override(resize, resize)
                 .centerCrop()
@@ -40,8 +41,8 @@ class GlideEngine : ImageEngine {
 
     override fun loadUrlThumbnail(context: Context, resize: Int, placeholder: Drawable, imageView: ImageView, url: String) {
         Glide.with(context)
+                .asBitmap()
                 .load(url)
-                .asBitmap() // some .jpeg files are actually gif
                 .placeholder(placeholder)
                 .override(resize, resize)
                 .centerCrop()
@@ -51,8 +52,8 @@ class GlideEngine : ImageEngine {
     override fun loadGifThumbnail(context: Context, resize: Int, placeholder: Drawable?, imageView: ImageView,
                                   uri: Uri) {
         Glide.with(context)
-                .load(uri)
                 .asBitmap()
+                .load(uri)
                 .placeholder(placeholder)
                 .override(resize, resize)
                 .centerCrop()
@@ -70,8 +71,8 @@ class GlideEngine : ImageEngine {
 
     override fun loadGifImage(context: Context, resizeX: Int, resizeY: Int, imageView: ImageView, uri: Uri) {
         Glide.with(context)
-                .load(uri)
                 .asGif()
+                .load(uri)
                 .override(resizeX, resizeY)
                 .priority(Priority.HIGH)
                 .into(imageView)

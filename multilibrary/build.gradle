@@ -52,7 +52,7 @@ dependencies {
     implementation "com.google.android.material:material:$rootProject.ext.androidMaterialSdkVersion"
     api 'com.github.chrisbanes:PhotoView:2.3.0'
     // 图片
-    compileOnly 'com.github.bumptech.glide:glide:4.8.0'
+    compileOnly 'com.github.bumptech.glide:glide:4.13.2'
     compileOnly 'com.squareup.picasso:picasso:2.5.2'
 
     // 拍摄、录像核心类 https://github.com/natario1/CameraView
